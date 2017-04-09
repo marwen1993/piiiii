@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.kairos.layouts.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane3" fx:id="rootPane" prefHeight="663.0" prefWidth="622.0" style="-fx-background-color: #fff;" stylesheets="@../style/StyleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.adminComunityController">
+   <children>
+      <RecyclerView fx:id="recycleView" prefHeight="663.0" prefWidth="622.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <JFXButton id="buttonHover1" buttonType="RAISED" layoutX="523.0" layoutY="566.0" onAction="#BackAction" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3395ff; -fx-background-radius: 120px;" text="🔙" textFill="WHITE" visible="false">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

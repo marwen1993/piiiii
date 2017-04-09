@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import org.kairos.layouts.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane3" fx:id="rootPane" prefHeight="663.0" prefWidth="622.0" style="-fx-background-color: #fff;" stylesheets="@../style/StyleSheet.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.comunityController">
+   <children>
+      <AnchorPane prefHeight="199.0" prefWidth="622.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <effect>
+            <DropShadow color="#8a8888" />
+         </effect>
+         <children>
+            <ImageView fitHeight="54.0" fitWidth="50.0" layoutX="14.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../src/apple-music-persona-profile-nav-button.png" />
+               </image>
+            </ImageView>
+            <JFXTextField fx:id="gameNameTF" focusColor="WHITE" labelFloat="true" layoutX="80.0" layoutY="17.0" maxWidth="532.0" minWidth="532.0" prefHeight="45.0" prefWidth="532.0" promptText="Enter the name of the game" style="-fx-border-color: #e51e2b;" unFocusColor="WHITE" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="10.0">
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
+            </JFXTextField>
+            <JFXButton id="buttonHover" layoutX="504.0" layoutY="158.0" onAction="#addComunityAction" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: #e51e2b;" text="Add Comunity" textFill="WHITE" AnchorPane.rightAnchor="10.0" />
+            <JFXButton id="buttonHover" layoutX="381.0" layoutY="158.0" onAction="#cancelCommentAction" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: #e51e2b;" text="Discard" textFill="WHITE" AnchorPane.rightAnchor="133.0" />
+            <JFXTextField fx:id="descTF" focusColor="WHITE" labelFloat="true" layoutX="80.0" layoutY="72.0" maxWidth="532.0" minWidth="532.0" prefHeight="75.0" prefWidth="532.0" promptText="Enter the name of the game" style="-fx-border-color: #e51e2b;" unFocusColor="WHITE" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="10.0">
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
+            </JFXTextField>
+         </children>
+      </AnchorPane>
+      <RecyclerView fx:id="recycleView" layoutY="207.0" prefHeight="456.0" prefWidth="632.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="207.0" />
+      <JFXButton id="buttonHover1" buttonType="RAISED" layoutX="523.0" layoutY="566.0" onAction="#BackAction" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #3395ff; -fx-background-radius: 120px;" text="🔙" textFill="WHITE" visible="false">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
