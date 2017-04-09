@@ -4,6 +4,7 @@ import DataBase.DataSource;
 import Interface.commentInterface;
 import controller.comunityController;
 import controller.signInController;
+import java.sql.Connection;
 import model.recycleViewModel;
 
 import java.sql.PreparedStatement;
@@ -13,12 +14,13 @@ import java.util.ArrayList;
 
 
 public class commentService implements commentInterface {
-
+    private Connection connection;
     DataSource dataSource;
     PreparedStatement statement;
     ResultSet result;
     public commentService(){
-        dataSource=new DataSource();
+        //dataSource=new DataSource();
+        connection = DataSource.getInstance().getConnection();
 
     }
 
@@ -28,7 +30,8 @@ public class commentService implements commentInterface {
         try {
             String sqlInsert = "INSERT INTO games.comment (name, username, comment, gamename, gameDesc, permission)  VALUES (?,?,?,?,?,?)";
 
-            statement = dataSource.getConnection().prepareStatement(sqlInsert);
+            //statement = dataSource.getConnection().prepareStatement(sqlInsert);
+            statement = connection.prepareStatement(sqlInsert);
 
             statement.setString(1, signInController.name);
             statement.setString(2, signInController.userName);
@@ -58,7 +61,8 @@ public class commentService implements commentInterface {
        ArrayList<recycleViewModel> arrayList=new ArrayList<>();
         try {
             String sqlSelect="SELECT  * FROM games.comment WHERE permission='1' AND gamename='"+comunityController.gameName+"' AND gameDesc='"+comunityController.gameDesc+"'";
-            statement=dataSource.getConnection().prepareStatement(sqlSelect);
+            //statement=dataSource.getConnection().prepareStatement(sqlSelect);
+            statement = connection.prepareStatement(sqlSelect);
             result=statement.executeQuery();
             while (result.next()){
                 recycleViewModel recycleViewModel=new recycleViewModel();

@@ -5,6 +5,7 @@ import Interface.comunityInterface;
 import com.jfoenix.controls.JFXButton;
 import controller.comunityController;
 import controller.signInController;
+import java.sql.Connection;
 import javafx.scene.control.Label;
 import model.recycleViewModel;
 import org.kairos.layouts.RecyclerView;
@@ -15,12 +16,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class comunityService implements comunityInterface {
-
+     private Connection connection;
     DataSource dataSource;
     PreparedStatement statement;
     ResultSet result;
     public comunityService(){
-        dataSource=new DataSource();
+        //dataSource=new DataSource();
+        connection = DataSource.getInstance().getConnection();
 
     }
 
@@ -30,7 +32,8 @@ public class comunityService implements comunityInterface {
         try {
         String sqlInsert = "INSERT INTO games.comunity  VALUES (?,?,?,?,?)";
 
-        statement = dataSource.getConnection().prepareStatement(sqlInsert);
+        //statement = dataSource.getConnection().prepareStatement(sqlInsert);
+        statement = connection.prepareStatement(sqlInsert);
 
         statement.setString(1, rm.getName());
         statement.setString(2, rm.getComment());
@@ -59,7 +62,8 @@ public class comunityService implements comunityInterface {
         try {
             String sqlInsert = "INSERT INTO games.follow  VALUES (?,?,?,?)";
 
-            statement = dataSource.getConnection().prepareStatement(sqlInsert);
+            //statement = dataSource.getConnection().prepareStatement(sqlInsert);
+            statement = connection.prepareStatement(sqlInsert);
             statement.setString(1, rm.getName());
             statement.setString(2, rm.getComment());
             statement.setString(3, signInController.userName);
@@ -82,11 +86,43 @@ public class comunityService implements comunityInterface {
     }
 
     @Override
+    public void changeComunityPermission(String name, String description, String username,JFXButton button) {
+
+        if (button.getText().equals("Hide")==true){
+            try {
+
+                String update = "UPDATE games.comunity SET permission ='0'  WHERE username='"+signInController.userName+"' AND  name='" +name+ "' AND description='"+description+"'";
+                //statement = dataSource.getConnection().prepareStatement(update);
+                statement = connection.prepareStatement(update);
+                statement.executeUpdate();
+                button.setText("Unhide");
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+       else if (button.getText().equals("Unhide")==true){
+            try {
+
+                String update = "UPDATE games.comunity SET permission ='1'  WHERE username='"+signInController.userName+"' AND  name='" +name+ "' AND description='"+description+"'";
+                //statement = dataSource.getConnection().prepareStatement(update);
+                statement = connection.prepareStatement(update);
+                statement.executeUpdate();
+                button.setText("Hide");
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
     public ArrayList<recycleViewModel> selectAllIntoList() {
         ArrayList<recycleViewModel> arrayList=new ArrayList<>();
         try {
             String sqlSelect="SELECT  * FROM games.comunity WHERE permission='1'";
-            statement=dataSource.getConnection().prepareStatement(sqlSelect);
+            //statement=dataSource.getConnection().prepareStatement(sqlSelect);
+            statement = connection.prepareStatement(sqlSelect);
             result=statement.executeQuery();
             while (result.next()){
                 recycleViewModel recycleViewModel=new recycleViewModel();
@@ -104,7 +140,8 @@ public class comunityService implements comunityInterface {
     public void addDataToRecyclerView(String name, String description, RecyclerView<recycleViewModel> recycleView) {
         try {
             String sqlSelect="SELECT  * FROM games.follow  WHERE name='"+name+"' AND description='"+description+"' AND username='"+signInController.userName+"'";
-            statement=dataSource.getConnection().prepareStatement(sqlSelect);
+            //statement=dataSource.getConnection().prepareStatement(sqlSelect);
+            statement = connection.prepareStatement(sqlSelect);
             result=statement.executeQuery();
             if (result.next()){
                 recycleViewModel recycleViewModel=new recycleViewModel();
@@ -136,7 +173,8 @@ public class comunityService implements comunityInterface {
             try {
 
                 String sqlSelect="SELECT  * FROM games.follow WHERE name='"+name.getText()+"' AND description='"+description.getText()+"' AND username='"+signInController.userName+"'";
-                statement=dataSource.getConnection().prepareStatement(sqlSelect);
+                //statement=dataSource.getConnection().prepareStatement(sqlSelect);
+                statement = connection.prepareStatement(sqlSelect);
                 result=statement.executeQuery();
 
                 if (result.next()){
@@ -145,7 +183,8 @@ public class comunityService implements comunityInterface {
 
                         try {
                             String update = "UPDATE games.follow SET follow ='Unfollow'  WHERE  name='" + name.getText() + "' AND description='"+description.getText()+"' AND username='"+signInController.userName+"'";
-                            statement = dataSource.getConnection().prepareStatement(update);
+                            //statement = dataSource.getConnection().prepareStatement(update);
+                            statement = connection.prepareStatement(update);
                             statement.executeUpdate();
                            follow.setText("Unfollow");
                         } catch (SQLException e) {
@@ -171,7 +210,8 @@ public class comunityService implements comunityInterface {
             try {
 
                 String update = "UPDATE games.follow SET follow ='Follow'  WHERE  name='" + name.getText() + "' AND description='"+description.getText()+"'";
-                statement = dataSource.getConnection().prepareStatement(update);
+                //statement = dataSource.getConnection().prepareStatement(update);
+                statement = connection.prepareStatement(update);
                 statement.executeUpdate();
                 follow.setText("Follow");
 
@@ -181,4 +221,31 @@ public class comunityService implements comunityInterface {
         }
 
     }
+
+    @Override
+    public ArrayList<recycleViewModel> selectAllIntoAdminList() {
+        ArrayList<recycleViewModel> arrayList=new ArrayList<>();
+        try {
+            String sqlSelect="SELECT  * FROM games.comunity WHERE username='"+signInController.userName+"'";
+            //statement=dataSource.getConnection().prepareStatement(sqlSelect);
+            statement = connection.prepareStatement(sqlSelect);
+            result=statement.executeQuery();
+            while (result.next()){
+                recycleViewModel recycleViewModel=new recycleViewModel();
+                recycleViewModel.setName(result.getString("name"));
+                recycleViewModel.setComment(result.getString("description"));
+                if (result.getString("permission").equals("0")){
+                    recycleViewModel.setFollow("Unhide");
+                }else {
+                    recycleViewModel.setFollow("Hide");
+                }
+                arrayList.add(recycleViewModel);
+            }
+        }catch (SQLException x){
+            x.printStackTrace();
+        }
+        return arrayList;
+    }
+
+
 }

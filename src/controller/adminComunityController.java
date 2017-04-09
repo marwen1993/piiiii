@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import DataBase.DataSource;
 import Main.Main;
 import com.jfoenix.controls.JFXButton;
@@ -20,12 +18,10 @@ import model.recycleViewModel;
 import org.kairos.components.RippleViewRow;
 import org.kairos.layouts.RecyclerView;
 import service.comunityService;
-import service.userService;
 
 import java.net.URL;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -33,13 +29,12 @@ import java.util.ResourceBundle;
  * Created by mohamed on 3/26/2017.
  */
 
-public class comunityController implements Initializable {
+public class adminComunityController implements Initializable {
 
     @FXML
     private RecyclerView<recycleViewModel>recycleView;
 
-    @FXML
-    private JFXTextField gameNameTF,descTF;
+
 
     @FXML
     private AnchorPane rootPane;
@@ -60,26 +55,18 @@ public class comunityController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         dataSource=new DataSource();
         comunityService=new comunityService();
+        comunityList=comunityService.selectAllIntoAdminList();
+
         Adapter adapter=new Adapter();
         recycleView.setAdapter(adapter);
-        comunityList=new ArrayList<>();
-
-        comunityList=comunityService.selectAllIntoList();
-        recycleView.getSelectionModel().selectedItemProperty().addListener((observable ,oldValue,newValue) ->{
-            follow=newValue.getFollow();
-            gameName=newValue.getName();
-            gameDesc=newValue.getComment();
-            main.closeComunity();
-            Main.gameName=newValue.getName();
-            new Main().commentsWindow();
-        });
 
         for (int i=0;i<comunityList.size();i++){
-            comunityService.addDataToRecyclerView(comunityList.get(i).getName(),comunityList.get(i).getComment(),recycleView);
+            recycleViewModel recycleViewModel =comunityList.get(i);
+            recycleView.getItems().addAll(recycleViewModel);
         }
+
 
     }
 
@@ -89,52 +76,6 @@ public class comunityController implements Initializable {
         main.mainWindow();
     }
 
-    @FXML
-    void addComunityAction(ActionEvent event) {
-        try {
-
-            if (gameNameTF.getText().isEmpty()) {
-                showSnackBar("Please enter the name of the game");
-            } else if (descTF.getText().isEmpty()) {
-                showSnackBar("Please enter the description of the game");
-            } else {
-                if (signInController.createPer.equals("1") == true) {
-                    recycleViewModel recycleViewModel = new recycleViewModel();
-                    recycleViewModel.setName(gameNameTF.getText());
-                    recycleViewModel.setComment(descTF.getText());
-                    recycleViewModel.setWarning("");
-                    recycleViewModel.setFollow("Follow");
-                    comunityService.insertComunity(recycleViewModel);
-                    recycleView.getItems().addAll(recycleViewModel);
-                    gameNameTF.setText("");
-                    descTF.setText("");
-                } else if (signInController.createPer.equals("0") == true) {
-
-                    recycleViewModel recycleViewModel = new recycleViewModel();
-                    recycleViewModel.setName(gameNameTF.getText());
-                    recycleViewModel.setComment(descTF.getText());
-                    recycleViewModel.setFollow("Follow");
-                    recycleViewModel.setWarning("this comunity will apear when the admin give you a permision");
-                    comunityService.insertComunity(recycleViewModel);
-                    recycleView.getItems().addAll(recycleViewModel);
-                    gameNameTF.setText("");
-                    descTF.setText("");
-                }
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
-
-
-    @FXML
-    void cancelCommentAction(ActionEvent event) {
-        gameNameTF.setText("");
-        descTF.setText("");
-
-    }
 
 
     public  class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
@@ -146,7 +87,7 @@ public class comunityController implements Initializable {
 
         @Override
         public Holder onCreateViewHolder(FXMLLoader fxmlLoader) {
-            fxmlLoader.setLocation(comunityController.class.getResource("/view/comunity_CardView.fxml"));
+            fxmlLoader.setLocation(adminComunityController.class.getResource("/view/adminComunity_CardView.fxml"));
             Holder holder = new Holder(fxmlLoader);
             return holder;
         }
@@ -160,10 +101,12 @@ public class comunityController implements Initializable {
             holder.name.setText(recycleViewModel.getName());
             holder.description.setText(recycleViewModel.getComment());
             holder.warning.setText(recycleViewModel.getWarning());
-            holder.follow.setText(recycleViewModel.getFollow());
+            holder.hide.setText(recycleViewModel.getFollow());
 
-            holder.follow.setOnAction(event -> {
-               comunityService.follow(holder.follow,holder.name,holder.description,comunityService);
+            holder.hide.setOnAction(event -> {
+
+            comunityService.changeComunityPermission(holder.name.getText(),holder.description.getText(),signInController.userName,holder.hide);
+
             });
         }
 
@@ -172,7 +115,7 @@ public class comunityController implements Initializable {
             private Label name,warning;
 
             @FXML
-            private JFXButton follow;
+            private JFXButton hide;
 
             @FXML
             private AnchorPane rootPane;

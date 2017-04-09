@@ -27,6 +27,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+/**
+ * Created by mohamed on 3/26/2017.
+ */
 
 public class comunityCommentController implements Initializable {
 
@@ -35,6 +38,7 @@ public class comunityCommentController implements Initializable {
 
     @FXML
     private JFXTextField commentTF;
+
     DataSource dataSource;
     PreparedStatement statement;
     ResultSet result;
@@ -68,18 +72,20 @@ public class comunityCommentController implements Initializable {
             CommentPane.setDisable(false);
         }
 
+        recycleViewModel recycleViewModel1=new recycleViewModel();
+        recycleViewModel1.setName("gggggggggggg");
+        recycleView.getItems().addAll(recycleViewModel1);
+
         Adapter adapter=new Adapter();
         recycleView.setAdapter(adapter);
+        System.out.println("xc ");
 
         ArrayList<recycleViewModel> arrayList=commentService.addDataToRecylcleView();
         for (int i=0;i<arrayList.size();i++){
             recycleViewModel recycleViewModel=arrayList.get(i);
             recycleView.getItems().addAll(recycleViewModel);
         }
-
     }
-
-
 
 
     public void showSnackBar(String msg){

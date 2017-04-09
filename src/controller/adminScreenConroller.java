@@ -3,6 +3,7 @@ package controller;
 
 
 import DataBase.DataSource;
+import Main.Main;
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -25,9 +26,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import DataBase.SendMessage;
 
-
+/**
+ * Created by mohamed on 3/25/2017.
+ */
 public class adminScreenConroller implements Initializable {
 
     @FXML
@@ -140,6 +142,11 @@ public class adminScreenConroller implements Initializable {
             userList.addAll(new userModel(userModel.getId(),userModel.getFullName(),userModel.getUsername(),userModel.getEmail(),userModel.getPassword(),userModel.getRole(),userModel.getEnabled(),userModel.getComment(),userModel.getCreate()));
         }
 
+
+
+        treeTableView.getSelectionModel().selectedItemProperty().addListener((observable ,oldValue,newValue) ->{
+         signInController.userName=newValue.getValue().getUsername();
+        });
     }
 
 
@@ -151,8 +158,6 @@ public class adminScreenConroller implements Initializable {
     @FXML
     void ChangePermissionEnabledAction(ActionEvent event) {
        userService.ChangePermissionEnabled(treeTableView.getSelectionModel().getSelectedItem());
-       //SendMessage ms = new SendMessage();
-       //ms.sendMessageCode("29688045", "");
     }
 
     @FXML
@@ -165,12 +170,16 @@ public class adminScreenConroller implements Initializable {
         userService.ChangeComunityCreationPermission(treeTableView.getSelectionModel().getSelectedItem());
     }
 
+    @FXML
+    void userComunitiesAction(ActionEvent event) {
+        new Main().comunityAdminWindow();
+    }
+
 
     @FXML
     void ChangeCommentPermissionAction(ActionEvent event) {
      userService.ChangeCommentPermission(treeTableView.getSelectionModel().getSelectedItem());
     }
 
-   
 
 }

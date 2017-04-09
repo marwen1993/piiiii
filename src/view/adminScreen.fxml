@@ -19,6 +19,7 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -29,6 +30,7 @@
             <JFXButton id="adminBTN" onAction="#ChangeRoleAction" prefHeight="85.0" prefWidth="297.0" style="-fx-background-color: #e51e2b;" text="Change Role" textFill="WHITE" GridPane.columnIndex="2" />
             <JFXButton id="adminBTN" onAction="#ChangeComunityCreationPermissionAction" prefHeight="83.0" prefWidth="272.0" style="-fx-background-color: #e51e2b;" text="Change  comunity Creation permission" textFill="WHITE" GridPane.columnIndex="4" />
             <JFXButton id="adminBTN" onAction="#ChangeCommentPermissionAction" prefHeight="83.0" prefWidth="290.0" style="-fx-background-color: #e51e2b;" text="Change Comment Permission" textFill="WHITE" GridPane.columnIndex="3" />
+            <JFXButton id="adminBTN" onAction="#userComunitiesAction" prefHeight="83.0" prefWidth="272.0" style="-fx-background-color: #e51e2b;" text="User Comunities" textFill="WHITE" GridPane.columnIndex="5" />
          </children>
       </GridPane>
       <JFXTreeTableView fx:id="treeTableView" layoutX="226.0" layoutY="45.0" prefHeight="550.0" prefWidth="1176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">

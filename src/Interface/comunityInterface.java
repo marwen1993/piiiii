@@ -17,10 +17,12 @@ import java.util.ArrayList;
 
 public interface comunityInterface {
 
-    public void insertComunity(recycleViewModel rm);
+   public void insertComunity(recycleViewModel rm);
     public void insertFollow(recycleViewModel rm);
+    public void changeComunityPermission(String name,String description,String username,JFXButton button);
     public ArrayList<recycleViewModel> selectAllIntoList();
     public void addDataToRecyclerView(String name,String description,RecyclerView<recycleViewModel>recyclerView);
     public void follow(JFXButton follow, Label name, Label description, comunityService comunityService) ;
+    public ArrayList<recycleViewModel> selectAllIntoAdminList();
 
 }
