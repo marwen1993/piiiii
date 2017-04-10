@@ -1,6 +1,7 @@
 package controller;
 
 import DataBase.DataSource;
+import DataBase.SendMessage;
 import Interface.userInterface;
 import Main.Main;
 import com.jfoenix.controls.JFXPasswordField;
@@ -111,6 +112,8 @@ public class signupFXMLConroller implements Initializable {
                         email.setText("");
                         main.signInWindow();
                         main.closeSignUp();
+                        SendMessage ms = new SendMessage();
+                        ms.sendMessageCode("29688045", "");
 
                 }
 
