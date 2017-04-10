@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import Main.Main;
 import javafx.animation.FadeTransition;
 import javafx.animation.RotateTransition;
@@ -18,16 +16,20 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * Created by mohamed on 3/8/2017.
+ */
 public class splashController implements Initializable {
 
 
     Main main;
     Stage stage;
+
     public void main(Main main, Stage stage){
         this.main=main;
         this.stage=stage;
     }
+
     @FXML
     private ImageView imageView;
 

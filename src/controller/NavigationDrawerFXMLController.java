@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import Main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,7 +9,9 @@ import javafx.scene.control.Label;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * Created by mohamed on 3/8/2017.
+ */
 public class NavigationDrawerFXMLController implements Initializable {
 
     @FXML

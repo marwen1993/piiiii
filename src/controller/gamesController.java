@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import Main.Main;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.ScaleTransition;
@@ -24,7 +22,9 @@ import org.kairos.layouts.RecyclerView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * Created by mohamed on 3/28/2017.
+ */
 
 public class gamesController implements Initializable {
 

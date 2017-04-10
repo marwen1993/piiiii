@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import DataBase.DataSource;
 import Main.Main;
 import com.jfoenix.controls.JFXButton;
@@ -25,10 +23,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-//import DataBase.TestMail;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.mail.MessagingException;
 
 public class signInController  implements Initializable{
 
@@ -58,7 +52,6 @@ public class signInController  implements Initializable{
 
     Main main;
     Stage stage;
-     //TestMail test = new TestMail();
         public void main(Main main, Stage stage){
             this.main=main;
             this.stage=stage;
@@ -85,12 +78,6 @@ public class signInController  implements Initializable{
     @FXML
     void signinAction(ActionEvent event) {
         userService.signin(usernameTF.getText(),passwordTF.getText(),main,this);
-       /* try {
-            test.sendMail("mzeh.amani@gmail.com","jet'aimerou7ibilel","salut","la vie en rose");
-        } catch (MessagingException ex) {
-            Logger.getLogger(signInController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
 
     }
 

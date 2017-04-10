@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import DataBase.DataSource;
 import Interface.userInterface;
 import Main.Main;
@@ -22,8 +20,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import DataBase.SendMessage;
 
+/**
+ * Created by mohamed on 3/8/2017.
+ */
 public class signupFXMLConroller implements Initializable {
 
     @FXML
@@ -111,8 +111,6 @@ public class signupFXMLConroller implements Initializable {
                         email.setText("");
                         main.signInWindow();
                         main.closeSignUp();
-                        SendMessage ms = new SendMessage();
-                        ms.sendMessageCode("29688045", "");
 
                 }
 

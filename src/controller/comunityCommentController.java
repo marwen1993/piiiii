@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import DataBase.DataSource;
 import Main.Main;
 import com.jfoenix.controls.JFXSnackbar;

@@ -1,7 +1,5 @@
 package controller;
 
-
-
 import Main.Main;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
@@ -23,7 +21,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * Created by mohamed on 3/8/2017.
+ */
 public class MainWindowController implements Initializable {
     @FXML
     private Pane imagePane;
