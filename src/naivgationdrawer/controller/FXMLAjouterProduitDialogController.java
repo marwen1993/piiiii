@@ -59,8 +59,8 @@ public class FXMLAjouterProduitDialogController implements Initializable {
     private boolean buttonConfirmarClicked = false;
     static Produit Prod;
     @FXML
-    private TextField id;
-    @FXML
+    //private TextField id;
+    //@FXML
     private TextField libelle;
     @FXML
     private TextField nom;
@@ -95,7 +95,7 @@ public class FXMLAjouterProduitDialogController implements Initializable {
            
             Prod.setUser_id(null);
             Prod.setVisibilite(1);
-            Prod.setId(Integer.parseInt(id.getText()));
+            //Prod.setId(Integer.parseInt(id.getText()));
             Prod.setCategorie_id((Categorie) categorie_id.getSelectionModel().getSelectedItem());
             Prod.setImage(imge);
   
@@ -157,7 +157,7 @@ public class FXMLAjouterProduitDialogController implements Initializable {
     public void setProduit(Produit Produit) {
         this.Prod = Produit;
         
-        this.id.setText(String.valueOf(Produit.getId()));
+        //this.id.setText(String.valueOf(Produit.getId()));
         this.categorie_id.setStyle(String.valueOf(Produit.getCategorie_id()));
         this.nom.setText(Produit.getNom());
        
@@ -184,28 +184,29 @@ public class FXMLAjouterProduitDialogController implements Initializable {
         if (nom.getText() == null || nom.getText().length() == 0) {
             errorMessage += "nom inválido!\n";
         }
-        if (id.getText() == null || id.getText().length() == 0) {
-            errorMessage += "id  inválido!\n";
-        }
+        //if (id.getText() == null || id.getText().length() == 0) {
+           // errorMessage += "id  inválido!\n";
+       // }
+        
         
         
 /*        if (image.getText() == null || nom.getText().length() == 0) {
             errorMessage += "nom inválido!\n";
         }*/
-        if (nombre_point.getText() == null || id.getText().length() == 0) {
+      /*  if (nombre_point.getText() == null || id.getText().length() == 0) {
             errorMessage += "id  inválido!\n";
         }
         if (prix.getText() == null || id.getText().length() == 0) {
             errorMessage += "id  inválido!\n";
         }
-        
+        */
         
         if (libelle.getText() == null || nom.getText().length() == 0) {
             errorMessage += "nom inválido!\n";
         }
-        if (stocke.getText() == null || id.getText().length() == 0) {
+       /* if (stocke.getText() == null || id.getText().length() == 0) {
             errorMessage += "id  inválido!\n";
-        }
+        }*/
         if (errorMessage.length() == 0) {
             return true;
             

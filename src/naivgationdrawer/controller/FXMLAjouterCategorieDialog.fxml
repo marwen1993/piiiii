@@ -9,7 +9,7 @@
 <?import javafx.scene.text.*?>
 <?language javascript?>
 
-<GridPane alignment="center" hgap="10" styleClass="root" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="naivgationdrawer.controller.FXMLAjouterCategorieDialogController">
+<GridPane alignment="center" hgap="10" styleClass="root" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="naivgationdrawer.controller.FXMLAjouterCategorieDialogController">
     
     
     
@@ -18,10 +18,6 @@
    <children>
      
      <Text id="welcome-text" text="Ajouter categorie" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
-     
-     <Label text="ID Categorie:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-     
-     <TextField fx:id="id" GridPane.columnIndex="1" GridPane.rowIndex="1" />
      
      
       <Label text="categorie_parent_id" GridPane.columnIndex="0" GridPane.rowIndex="2" />

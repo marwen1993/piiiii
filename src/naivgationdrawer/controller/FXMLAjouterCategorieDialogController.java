@@ -36,8 +36,8 @@ import tray.notification.TrayNotification;
 public class FXMLAjouterCategorieDialogController implements Initializable {
 
     @FXML private Text actiontarget;
-    @FXML
-    private TextField id;
+   // @FXML
+   // private TextField id;
     @FXML
     private ComboBox categorie_parent_id;
     @FXML
@@ -71,7 +71,7 @@ public class FXMLAjouterCategorieDialogController implements Initializable {
            
         if (validarEntradaDeDados()) {
      
-             Categorie.setId(Integer.parseInt(id.getText()));
+             //Categorie.setId(Integer.parseInt(id.getText()));
             Categorie.setCategorie_parent((Categorie_parent) categorie_parent_id.getSelectionModel().getSelectedItem());
            
             //Categorie
@@ -118,7 +118,7 @@ public class FXMLAjouterCategorieDialogController implements Initializable {
 
     public void setCategorie(Categorie Categorie) {
         this.Categorie = Categorie;
-        this.id.setText(String.valueOf(Categorie.getId()));
+        //this.id.setText(String.valueOf(Categorie.getId()));
         this.categorie_parent_id.setStyle(String.valueOf(Categorie.getCategorie_parent()));
         this.nom.setText(Categorie.getNom());
         
@@ -139,9 +139,9 @@ public class FXMLAjouterCategorieDialogController implements Initializable {
         if (nom.getText() == null || nom.getText().length() == 0) {
             errorMessage += "nom no valide!\n";
         }
-        if (id.getText() == null || id.getText().length() == 0) {
+        /*if (id.getText() == null || id.getText().length() == 0) {
             errorMessage += "id  no valide!\n";
-        }
+        }*/
         if (errorMessage.length() == 0) {
             return true;
         } else {

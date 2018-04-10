@@ -40,20 +40,20 @@ Connection con;
     
     @Override
     public boolean inserir(Produit Produit) {
-      String sql = "INSERT INTO produit(id,categorie_id,nom,libelle,prix,nombre_point,stocke,visibilite,image) VALUES(?,?,?,?,?,?,?,?,?)";
+      String sql = "INSERT INTO produit(categorie_id,nom,libelle,prix,nombre_point,stocke,visibilite,image) VALUES(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1,Produit.getId());
-            stmt.setInt(2,Produit.getCategorie_id().getId());
+           // stmt.setInt(1,Produit.getId());
+            stmt.setInt(1,Produit.getCategorie_id().getId());
             
-            stmt.setString(3,Produit.getNom());
-            stmt.setString(4,Produit.getLibelle());
-            stmt.setDouble(5, Produit.getPrix());
-            stmt.setInt(6,Produit.getNombre_point());
+            stmt.setString(2,Produit.getNom());
+            stmt.setString(3,Produit.getLibelle());
+            stmt.setDouble(4, Produit.getPrix());
+            stmt.setInt(5,Produit.getNombre_point());
             
-            stmt.setInt(7,Produit.getStocke());
-            stmt.setInt(8,Produit.getVisibilite());
-            stmt.setString(9,Produit.getImage());
+            stmt.setInt(6,Produit.getStocke());
+            stmt.setInt(7,Produit.getVisibilite());
+            stmt.setString(8,Produit.getImage());
         
             stmt.execute();
             return true;

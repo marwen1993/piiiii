@@ -40,12 +40,12 @@ public class ICategorieService implements naivgationdrawer.Interface.ICategorie{
     @Override
     public boolean ajouterCategorie(Categorie C) {
         
-       String sql = "INSERT INTO categorie(id,categorie_parent_id,nom) VALUES(?,?,?)";     
+       String sql = "INSERT INTO categorie(categorie_parent_id,nom) VALUES(?,?)";     
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1,C.getId());
-            stmt.setInt(2,C.getCategorie_parent().getId());
-            stmt.setString(3,C.getNom());
+            //stmt.setInt(1,C.getId());
+            stmt.setInt(1,C.getCategorie_parent().getId());
+            stmt.setString(2,C.getNom());
             
             stmt.execute();
             return true;
@@ -163,7 +163,7 @@ public class ICategorieService implements naivgationdrawer.Interface.ICategorie{
 
     @Override
     public boolean modifierCategorie(Categorie C) {
-     String sql = "UPDATE categorie SET id=?, categorie_parent_id=?, nom=?,  WHERE id=?";
+     String sql = "UPDATE categorie SET  categorie_parent_id=?, nom=?,  WHERE id=?";
         try {
             PreparedStatement stmt = con.prepareStatement(sql);
             //stmt.setInt(1,C.getCategorie_parent_id().getId());
