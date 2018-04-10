@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?language javascript?>
+
+<GridPane alignment="center" hgap="10" prefHeight="454.0" prefWidth="486.0" styleClass="root" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="naivgationdrawer.controller.FXMLAjouterProduitDialogController">
+    
+    
+    
+    
+    <padding><Insets bottom="10" left="25" right="25" top="25" /></padding>
+   <children>
+     
+     <Text id="welcome-text" text="Ajouter Produit" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+     
+     <Label text="ID Produit" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+     
+     <TextField fx:id="id" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+     
+     
+      <Label text="categorie_id" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+     
+     <ComboBox fx:id="categorie_id" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    
+      
+     <Label text="nom" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+     
+     <TextField fx:id="nom" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+     
+     <Label text="libelle" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+     
+     <TextField fx:id="libelle" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+     
+     <Label text="prix" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+     
+     <TextField fx:id="prix" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+     
+     <Label text="nombre_point" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+     
+     <TextField fx:id="nombre_point" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+     
+     <Label text="stocke" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+     
+     <TextField fx:id="stocke" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+ 
+     <Label text="image" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+
+     <ImageView fx:id="imgVw" fitHeight="150.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="8">
+           <image>
+                    <Image url="@blank.jpg" />
+           </image>
+     </ImageView>
+ 
+     <Button fx:id="uplodimage" onAction="#processUpload" prefHeight="23.0" prefWidth="185.0" text="Uplod Image" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+ 
+     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="10">
+        <children>
+            <Button fx:id="confirmer" onAction="#handleSubmitButtonAction" text="confirmer" />
+            <Button fx:id="cancel" onAction="#handleButtonCancelar" text="Cancel" />
+        </children>
+     </HBox>
+     
+     <Text fx:id="actiontarget" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+   </children>
+  
+  <stylesheets>
+    <URL value="@Login.css" />
+  </stylesheets>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+ 
+</GridPane>

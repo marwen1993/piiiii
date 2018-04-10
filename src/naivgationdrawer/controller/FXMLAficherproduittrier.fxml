@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="391.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="naivgationdrawer.controller.FXMLAficherproduittrierController">
+   <children>
+      <SplitPane dividerPositions="0.3762541806020067" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="210.0">
+               <children>
+                  <TableView fx:id="produit" prefHeight="398.0" prefWidth="218.0">
+                    <columns>
+                      <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+                        <TableColumn fx:id="categorie_id" prefWidth="75.0" text="categori-id" />
+                      <TableColumn fx:id="nom" prefWidth="75.0" text="nom" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="380.0" prefWidth="338.0" style="-fx-background-color: #ffffff;">
+               <children>
+                  <GridPane layoutX="13.0" layoutY="90.0" prefHeight="248.0" prefWidth="345.0" style="-fx-background-color: #bf0000;">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="171.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="140.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label prefHeight="44.0" prefWidth="150.0" text="nom" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="49.0" prefWidth="156.0" text="nom categorie" textFill="#f5f4f4" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="47.0" prefWidth="169.0" text="prix" textFill="#f8f4f4" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="43.0" prefWidth="169.0" text="visibilite" textFill="#f2f2f2" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="50.0" prefWidth="170.0" text="stock" textFill="#f8f8f8" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelname" text="Label" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelcategorie" text="Label" textFill="#fffefe" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelprix" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelvis" prefHeight="51.0" prefWidth="159.0" style="-fx-background-color: #bf0000;" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelstock" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <Button layoutX="241.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleChange" prefHeight="25.0" prefWidth="55.0" text="vis" />
+                  <Label layoutX="74.0" layoutY="14.0" prefHeight="19.0" prefWidth="282.0" text=" Home -&gt;  les produit par categorie">
+                     <font>
+                        <Font name="System Bold Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="142.0" layoutY="36.0" prefHeight="31.0" prefWidth="140.0" text="Bas prix" textAlignment="CENTER">
+                     <font>
+                        <Font name="Arial Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="retour" buttonType="RAISED" layoutX="36.0" layoutY="350.0" onAction="#handleretour" prefHeight="25.0" prefWidth="63.0" style="-fx-background-color: #ea1313;" text="retour" textFill="#f4f004" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

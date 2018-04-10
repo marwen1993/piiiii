@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="naivgationdrawer.controller.FXMLMainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu fx:id="menucataegorie" mnemonicParsing="false" text=" Categorie">
+            <items>
+              <MenuItem fx:id="menuitmcategorieparent" mnemonicParsing="false" onAction="#hundelcategorieParent" text="Categorie parent" />
+                  <MenuItem fx:id="menucategorie" mnemonicParsing="false" onAction="#hundelcategorie" text="Categorie" />
+                  
+            </items>
+          </Menu>
+          <Menu fx:id="menuproduit" mnemonicParsing="false" text="Produit">
+            <items>
+                  <MenuItem fx:id="menuitmproduit" mnemonicParsing="false" onAction="#hundelproduit" text="Produit" />
+              <MenuItem fx:id="menuitmproduitdis" mnemonicParsing="false" onAction="#hundelproduitcategorie" text="Produit disponible" />
+            </items>
+          </Menu>
+          <Menu fx:id="menustat" mnemonicParsing="false" text="Statistique">
+            <items>
+              <MenuItem fx:id="statjeux" mnemonicParsing="false" text="Statistique des jeux " />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="anchorPane" prefHeight="391.0" prefWidth="600.0" />
+   </children>
+   
+     
+   
+</VBox>

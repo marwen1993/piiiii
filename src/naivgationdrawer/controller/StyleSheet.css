@@ -1,0 +1,23 @@
+
+#AnchorPane{
+    -fx-background-image: url("/src/markus-spiske-193031.jpg");
+}
+#AnchorPane2{
+    -fx-background-image: url("/src/riley-mccullough-196374.jpg");
+}
+
+#splashBack{
+    -fx-background-image: url("/src/annie-spratt-66432.jpg");
+}
+
+
+#SignInBtn2 :hover{
+    -fx-background-color: #ffc32f;
+}
+
+
+#SignInBtn :hover{
+    -fx-background-color: #ffc32f;
+}
+
+
