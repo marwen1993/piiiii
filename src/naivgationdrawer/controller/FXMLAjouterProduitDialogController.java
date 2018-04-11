@@ -32,6 +32,7 @@ import javafx.stage.Stage;
 import javax.mail.MessagingException;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
+import utils.VoiceUtils;
 
 /**
  * FXML Controller class
@@ -89,8 +90,10 @@ public class FXMLAjouterProduitDialogController implements Initializable {
     
     
     @FXML protected void handleSubmitButtonAction(ActionEvent event) throws IOException {
-           
-        if (validarEntradaDeDados()) {
+           VoiceUtils v=new VoiceUtils("kevin16");
+         String[] s={"veuillez remplir soignesement les cases"};
+        v.sayMultiple(s);
+           if (validarEntradaDeDados()) {
      
            
             Prod.setUser_id(null);
@@ -114,6 +117,7 @@ public class FXMLAjouterProduitDialogController implements Initializable {
             dialogStage.close();
              TrayNotification tray = new TrayNotification("Notification !", "vous avez ajouter un nouveaux produits ainsi que un mail a été envoyer vesr tt les utlisateur  ", NotificationType.SUCCESS);
            tray.showAndDismiss(javafx.util.Duration.seconds(2));
+       
         }
     
         //actiontarget.setText("il ya un probléme dans l'ajout ");
@@ -179,10 +183,10 @@ public class FXMLAjouterProduitDialogController implements Initializable {
     private boolean validarEntradaDeDados() {
         String errorMessage = "";
         if (categorie_id.getSelectionModel().getSelectedItem() == null) {
-            errorMessage += "categorie no valide!\n";
+            errorMessage += "la categorie est non valide!\n";
         }
         if (nom.getText() == null || nom.getText().length() == 0) {
-            errorMessage += "nom inválido!\n";
+            errorMessage += "le nom est invalide!\n";
         }
         //if (id.getText() == null || id.getText().length() == 0) {
            // errorMessage += "id  inválido!\n";
@@ -202,7 +206,7 @@ public class FXMLAjouterProduitDialogController implements Initializable {
         */
         
         if (libelle.getText() == null || nom.getText().length() == 0) {
-            errorMessage += "nom inválido!\n";
+            errorMessage += "le nom est invalide!\n";
         }
        /* if (stocke.getText() == null || id.getText().length() == 0) {
             errorMessage += "id  inválido!\n";
@@ -218,8 +222,8 @@ public class FXMLAjouterProduitDialogController implements Initializable {
         else {
             // Mostrando a mensagem de erro
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erro no cadastro");
-            alert.setHeaderText("Campos inválidos, por favor, corrija...");
+            alert.setTitle("Erreur d'inscription");
+            alert.setHeaderText("champs invalide,veuillez les corriger");
             alert.setContentText(errorMessage);
             alert.show();
             return false;

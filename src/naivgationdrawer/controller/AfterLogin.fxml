@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="689.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="naivgationdrawer.controller.AfterLoginController">
+   <top>
+      <AnchorPane prefHeight="332.0" prefWidth="787.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="335.0" fitWidth="787.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/back.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane opacity="0.46" prefHeight="49.0" prefWidth="787.0" style="-fx-background-color: black;">
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="50.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icone.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="228.0" layoutY="30.0" mnemonicParsing="false" onAction="#produits" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Produits" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button layoutX="322.0" layoutY="30.0" mnemonicParsing="false" onAction="#appeldoffre" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: transparent;" text="Appel d'offre" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button layoutX="431.0" layoutY="26.0" mnemonicParsing="false" onAction="#forum" prefHeight="35.0" prefWidth="70.0" style="-fx-background-color: transparent;" text="Forum" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font></Button>
+                  <Button layoutX="641.0" layoutY="31.0" mnemonicParsing="false" onAction="#profile" style="-fx-background-color: transparent;" text="Profile" textFill="WHITE" />
+                  <ImageView fitHeight="29.0" fitWidth="38.0" layoutX="728.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/shutdown.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="700.0" layoutY="31.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: tranparent;" text="Déconnecter" textFill="WHITE" />
+                  <ImageView fitHeight="34.0" fitWidth="37.0" layoutX="649.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/user-location.png" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutX="615.0" layoutY="1.0" orientation="VERTICAL" prefHeight="59.0" prefWidth="0.0" />
+                  <Button layoutX="131.0" layoutY="30.0" mnemonicParsing="false" onAction="#patisserie" style="-fx-background-color: transparent;" text="Patisserie" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="526.0" layoutY="31.0" mnemonicParsing="false" onAction="#contact" style="-fx-background-color: transparent;" text="Contact" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Text fill="WHITE" layoutX="39.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CupCake" wrappingWidth="107.9765625">
+                     <font>
+                        <Font name="Freestyle Script" size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ScrollPane prefHeight="672.0" prefWidth="787.0" BorderPane.alignment="CENTER">
+         <content>
+            <AnchorPane prefHeight="798.0" prefWidth="774.0">
+               <children>
+                  <ImageView fitHeight="59.0" fitWidth="483.0" layoutX="146.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/titre.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="217.0" fitWidth="490.0" layoutX="46.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/back2.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="208.0" fitWidth="183.0" layoutX="545.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/paragraphe.jpg" />
+                     </image>
+                  </ImageView>
+                  <Separator layoutX="205.0" layoutY="60.0" prefHeight="3.0" prefWidth="355.0" />
+                  <ImageView fitHeight="384.0" fitWidth="720.0" layoutX="43.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/foot.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
